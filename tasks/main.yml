@@ -1,0 +1,14 @@
+---
+- name: Install DCR and dependencies.
+  composer:
+    command: "require"
+    arguments: "alexdesignworks/dcr ~0.1"
+    working_dir: "{{ dcr_install_dir }}"
+  become: no
+
+- name: Install DCR for current project.
+  command: vendor/bin/dcr install
+  args:
+    chdir: "{{ dcr_init_dir }}"
+  become: no
+  when: dcr_init

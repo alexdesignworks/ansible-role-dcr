@@ -1,0 +1,8 @@
+---
+# Directory to install DCR into.
+dcr_install_dir: "/var/www"
+# Initialise DCR after install.
+dcr_init: yes
+# Initialise DCR in directory.
+dcr_init_dir: "{{ dcr_install_dir }}"
+

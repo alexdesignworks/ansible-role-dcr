@@ -1,0 +1,17 @@
+---
+galaxy_info:
+  author: alexdesignworks
+  description: DCR role for.
+  license: "license (BSD, MIT)"
+  min_ansible_version: 1.9
+  platforms:
+  - name: Ubuntu
+    versions:
+    - all
+  categories:
+    - development
+    - installer
+    - drupal
+    - web
+dependencies:
+  - geerlingguy.composer
