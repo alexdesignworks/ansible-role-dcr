@@ -21,6 +21,37 @@ Initialise DCR in directory.
 dcr_init_dir: "{{ dcr_install_dir }}"
 ```
 
+List of target files and directories to scan.
+```
+dcr_targets:
+  - sites/all/modules/custom
+  - sites/all/themes/custom
+```
+
+List of extensions to scan.
+```
+dcr_extensions:
+  - module
+  - install
+  - profile
+  - php
+  - theme
+  - inc
+  - test
+  - js
+```
+
+Success message.
+```
+dcr_success_message: "All good! You're awesome!"
+```
+
+Fail message.
+```
+dcr_fail_message: "Please fix errors above and re-run dcr"
+```
+
+
 ## Dependencies
 
 `geerlingguy.composer`

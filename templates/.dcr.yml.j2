@@ -1,0 +1,18 @@
+#
+# DCR configuration file.
+#
+# Run: `dcr install` or copy manually to your project's root.
+#
+
+# Space (!) separated list of files or directories to scan.
+targets: "{{ dcr_targets | join(" ") }}"
+# Comma-separated list of extensions to scan.
+extensions: "{{ dcr_extensions | join(",") }}"
+# Comma-separated list of required standards to use.
+standards: "{{ dcr_standards | join(",") }}"
+# Space-separated list of phpcs parameters to run dcr.
+parameters: "--colors"
+# Success result message.
+success: "{{ dcr_success_message }}"
+# Fail result message.
+fail: "{{ dcr_fail_message }}"

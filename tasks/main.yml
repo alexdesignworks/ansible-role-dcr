@@ -6,6 +6,17 @@
     working_dir: "{{ dcr_install_dir }}"
   become: no
 
+- name: Check .dcr.yml config exists
+  stat:
+    path:  "{{ dcr_install_dir }}/.dcr.yml"
+  register: dcr_config_exists
+
+- name: Add .dcr.yml config if it does not exist.
+  template:
+    src: .dcr.yml.j2
+    dest: "{{ dcr_install_dir }}/.dcr.yml"
+  when: dcr_init and dcr_config_exists.stat.exists == False
+
 - name: Install DCR for current project.
   command: vendor/bin/dcr install
   args:
