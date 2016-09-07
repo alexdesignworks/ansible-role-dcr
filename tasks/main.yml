@@ -2,7 +2,7 @@
 - name: Install DCR and dependencies.
   composer:
     command: "require"
-    arguments: "alexdesignworks/dcr ~0.1"
+    arguments: "alexdesignworks/dcr {{ dcr_version }}"
     working_dir: "{{ dcr_install_dir }}"
   become: no
 

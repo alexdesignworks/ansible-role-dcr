@@ -6,6 +6,11 @@ An Ansible role that installs [DCR](https://github.com/alexdesignworks/dcr).
 
 Available variables are listed below, along with default values:
 
+DCR version.
+```
+dcr_version: "~0.1"
+```
+
 Directory to install DCR into.
 ```
 dcr_install_dir: "/var/www"

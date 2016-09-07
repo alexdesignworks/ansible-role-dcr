@@ -1,4 +1,6 @@
 ---
+# Version number.
+dcr_version: "~0.1"
 # Directory to install DCR into.
 dcr_install_dir: "/var/www"
 # Initialise DCR after install.
