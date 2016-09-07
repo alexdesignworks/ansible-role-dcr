@@ -1,6 +1,8 @@
 ---
 # Version number.
 dcr_version: "~0.2"
+# Install DCR globally.
+dcr_install_global: yes
 # Directory to install DCR into.
 dcr_install_dir: "/var/www"
 # Initialise DCR after install.

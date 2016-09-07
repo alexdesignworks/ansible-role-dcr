@@ -1,25 +1,39 @@
 ---
-- name: Install DCR and dependencies.
+- name: Install DCR and dependencies locally.
   composer:
     command: "require"
     arguments: "alexdesignworks/dcr {{ dcr_version }}"
     working_dir: "{{ dcr_install_dir }}"
   become: no
+  when: not dcr_install_global
+
+- name: Install DCR and dependencies globally.
+  shell: "composer global require alexdesignworks/dcr {{ dcr_version }}"
+  become: no
+  when: dcr_install_global
 
 - name: Check .dcr.yml config exists
   stat:
-    path:  "{{ dcr_install_dir }}/.dcr.yml"
+    path:  "{{ dcr_init_dir }}/.dcr.yml"
   register: dcr_config_exists
+  when: dcr_init
 
 - name: Add .dcr.yml config if it does not exist.
   template:
     src: .dcr.yml.j2
-    dest: "{{ dcr_install_dir }}/.dcr.yml"
+    dest: "{{ dcr_init_dir }}/.dcr.yml"
   when: dcr_init and dcr_config_exists.stat.exists == False
 
-- name: Install DCR for current project.
-  command: vendor/bin/dcr install
+- name: Init DCR for current project from local context.
+  command: vendor/bin/dcr init
   args:
     chdir: "{{ dcr_init_dir }}"
   become: no
-  when: dcr_init
+  when: dcr_init and not dcr_install_global
+
+- name: Init DCR for current project from global context.
+  command: dcr init
+  args:
+    chdir: "{{ dcr_init_dir }}"
+  become: no
+  when: dcr_init and dcr_install_global

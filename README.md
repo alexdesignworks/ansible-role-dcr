@@ -11,7 +11,12 @@ DCR version.
 dcr_version: "~0.1"
 ```
 
-Directory to install DCR into.
+Install globally.
+```
+dcr_install_global: yes
+```
+
+Directory to install DCR into. Applies only if the value of `dcr_install_global` is `no`.
 ```
 dcr_install_dir: "/var/www"
 ```
