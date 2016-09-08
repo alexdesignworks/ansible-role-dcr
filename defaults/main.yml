@@ -1,6 +1,6 @@
 ---
 # Version number.
-dcr_version: "~0.2"
+dcr_version: "~0.3"
 # Install DCR globally.
 dcr_install_global: yes
 # Directory to install DCR into.
